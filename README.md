@@ -1,42 +1,52 @@
-# Sistema de Registro de Puntos de Interés con Base de Datos Geoespacial
+# 🌍 Sistema de Registro de Puntos de Interés
 
-## Descripción
-Aplicación web contenerizada para registrar y consultar puntos de interés con ubicación geográfica.
+Aplicación web para registrar, gestionar y consultar puntos de interés geolocalizados mediante una API REST y una base de datos geoespacial.
 
-## Tecnologías usadas
-- PostgreSQL + PostGIS
+---
+
+## 🚀 Características
+
+- Registro de puntos con coordenadas geográficas
+- Filtrado por categoría
+- Búsqueda por proximidad (radio en metros)
+- API REST con documentación automática
+- Arquitectura contenerizada con Docker
+- Persistencia de datos
+
+---
+
+## 🛠️ Tecnologías
+
 - FastAPI
+- PostgreSQL + PostGIS
 - Nginx
 - Docker Compose
 
-## Arquitectura
-- db: base de datos geoespacial
-- app: API REST
-- proxy: punto de entrada único
+---
 
-## Requisitos
-- Docker
-- Docker Compose
+## 🧱 Arquitectura
 
-## Configuración
-Crear archivo `.env` con:
-...
+El sistema está compuesto por tres servicios:
 
-## Ejecución
+- **db:** base de datos geoespacial
+- **app:** API REST
+- **proxy:** servidor Nginx (punto de entrada)
+
+---
+
+## ⚙️ Configuración
+
+Crear un archivo `.env` en la raíz del proyecto:
+
+```env
+POSTGRES_USER=usuario
+POSTGRES_PASSWORD=contraseña
+POSTGRES_DB=nombre_db
+
+
+## ⚙️ Ejecucion
 docker compose up --build
+docker compose up
 
-## Acceso
-- Aplicación: http://localhost
-- Documentación API: http://localhost/docs
-
-## Endpoints principales
-- GET /points
-- GET /points?category=...
-- GET /points/nearby?lat=...&lon=...&radius=...
-- POST /points
-
-## Persistencia
-Se usa un volumen Docker para los datos PostgreSQL.
-
-## Datos iniciales
-Se insertan 5 puntos de ejemplo automáticamente al iniciar.
+🌐 Acceso
+Aplicación: http://localhost:81
