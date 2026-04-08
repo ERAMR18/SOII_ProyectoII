@@ -1,0 +1,173 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Fondo */
+body {
+    background: linear-gradient(135deg, #4c1d95, #1e3a8a);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor */
+.container {
+    max-width: 1300px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    grid-template-areas:
+        "header header"
+        "forms table1"
+        "forms table2";
+    gap: 20px;
+}
+
+/* Header */
+h1 {
+    grid-area: header;
+    text-align: center;
+    color: #fff;
+}
+
+.subtitle {
+    grid-area: header;
+    text-align: center;
+    color: #c7d2fe;
+    margin-top: 30px;
+}
+
+/* Formularios */
+.grid {
+    grid-area: forms;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Tablas */
+.container > .card:nth-of-type(1) {
+    grid-area: table1;
+}
+
+.container > .card:nth-of-type(2) {
+    grid-area: table2;
+}
+
+/* Tarjetas (TRANSLÚCIDAS ✅) */
+.card {
+    background: rgba(255, 255, 255, 0.7); /* más transparente */
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Títulos */
+.card h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #4338ca;
+}
+
+/* Inputs */
+input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #6366f1;
+    background: #fff;
+}
+
+/* Botones */
+button {
+    width: 100%;
+    padding: 9px;
+    border-radius: 6px;
+    border: none;
+    background: #6366f1;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #4f46e5;
+}
+
+/* Botón secundario */
+#clearFilterButton {
+    background: #e5e7eb;
+    color: #374151;
+    margin-top: 5px;
+}
+
+#clearFilterButton:hover {
+    background: #d1d5db;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+thead {
+    background: #4338ca;
+    color: white;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr:hover {
+    background: #f1f5f9;
+}
+
+/* Mensajes */
+.message {
+    font-size: 13px;
+    margin-top: 8px;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.success {
+    background: #ecfdf5;
+    color: #065f46;
+}
+
+.error {
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "forms"
+            "table1"
+            "table2";
+    }
+}
