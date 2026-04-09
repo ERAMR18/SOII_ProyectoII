@@ -45,7 +45,7 @@ POSTGRES_DB=nombre_db
 
 
 ## ⚙️ Ejecucion
-docker compose up --build
+docker compose build --no-cache
 docker compose up
 
 🌐 Acceso
