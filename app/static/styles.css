@@ -1,173 +1,158 @@
-/* Reset */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
 }
 
-/* Fondo */
+/* BODY */
 body {
-    background: linear-gradient(135deg, #4c1d95, #1e3a8a);
-    min-height: 100vh;
-    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
 }
 
-/* Contenedor */
+/* CONTENEDOR */
 .container {
+    width: 90%;
     max-width: 1300px;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    grid-template-areas:
-        "header header"
-        "forms table1"
-        "forms table2";
-    gap: 20px;
+    margin: 20px auto;
 }
 
-/* Header */
+/* TITULOS */
 h1 {
-    grid-area: header;
     text-align: center;
-    color: #fff;
+    margin-bottom: 10px;
+    color: #38bdf8;
 }
 
 .subtitle {
-    grid-area: header;
     text-align: center;
-    color: #c7d2fe;
-    margin-top: 30px;
+    color: #94a3b8;
+    margin-bottom: 30px;
 }
 
-/* Formularios */
+/* GRID DIFERENTE (más compacto) */
 .grid {
-    grid-area: forms;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 15px;
 }
 
-/* Tablas */
-.container > .card:nth-of-type(1) {
-    grid-area: table1;
-}
-
-.container > .card:nth-of-type(2) {
-    grid-area: table2;
-}
-
-/* Tarjetas (TRANSLÚCIDAS ✅) */
+/* TARJETAS (modo glassmorphism) */
 .card {
-    background: rgba(255, 255, 255, 0.7); /* más transparente */
+    flex: 1 1 320px;
+    background: rgba(30, 41, 59, 0.7);
     backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: 16px;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 15px;
+    padding: 18px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Títulos */
-.card h2 {
-    font-size: 15px;
-    margin-bottom: 10px;
-    color: #4338ca;
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* Inputs */
+/* FORMULARIOS */
+label {
+    margin-top: 10px;
+    margin-bottom: 4px;
+    display: block;
+    font-size: 14px;
+    color: #cbd5f5;
+}
+
 input, textarea, select {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    border: 1px solid #e5e7eb;
-    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #020617;
+    color: #e2e8f0;
+    transition: border 0.2s;
 }
 
 input:focus, textarea:focus, select:focus {
     outline: none;
-    border-color: #6366f1;
-    background: #fff;
+    border: 1px solid #38bdf8;
 }
 
-/* Botones */
+/* BOTONES (estilo neón) */
 button {
-    width: 100%;
-    padding: 9px;
-    border-radius: 6px;
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 8px;
     border: none;
-    background: #6366f1;
+    background: linear-gradient(135deg, #22d3ee, #6366f1);
     color: white;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 button:hover {
-    background: #4f46e5;
+    filter: brightness(1.2);
+    transform: scale(1.03);
 }
 
-/* Botón secundario */
-#clearFilterButton {
-    background: #e5e7eb;
-    color: #374151;
-    margin-top: 5px;
-}
-
-#clearFilterButton:hover {
-    background: #d1d5db;
-}
-
-/* Tablas */
+/* TABLAS (modo oscuro) */
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
+    margin-top: 10px;
+    background: #020617;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-thead {
-    background: #4338ca;
-    color: white;
+table th {
+    background: #1e293b;
+    color: #38bdf8;
+    padding: 10px;
 }
 
-th, td {
-    padding: 8px;
-    text-align: left;
+table td {
+    padding: 10px;
+    border-top: 1px solid #334155;
 }
 
-tbody tr {
-    border-bottom: 1px solid #e5e7eb;
+table tr:hover {
+    background: #1e293b;
 }
 
-tbody tr:hover {
-    background: #f1f5f9;
-}
-
-/* Mensajes */
+/* MENSAJES */
 .message {
-    font-size: 13px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.message.success {
+    background: rgba(34,197,94,0.2);
+    color: #4ade80;
+}
+
+.message.error {
+    background: rgba(239,68,68,0.2);
+    color: #f87171;
+}
+
+/* MAPA MÁS GRANDE */
+#map {
+    width: 100%;
+    height: 500px;
+    border-radius: 15px;
+    border: 2px solid #38bdf8;
+    margin-top: 10px;
+}
+
+/* TEXTO DE AYUDA */
+.map-help {
     margin-top: 8px;
-    padding: 6px;
-    border-radius: 5px;
-}
-
-.success {
-    background: #ecfdf5;
-    color: #065f46;
-}
-
-.error {
-    background: #fef2f2;
-    color: #991b1b;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .container {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "header"
-            "forms"
-            "table1"
-            "table2";
-    }
+    font-size: 13px;
+    color: #94a3b8;
+    text-align: center;
 }
